@@ -101,7 +101,11 @@ FOLLY_ALWAYS_INLINE void compiler_must_not_elide(T const& t, std::false_type) {
   //
   // avoided for pointers to avoid fallout in calling code which mistakenly
   // applies the hint to the address of a value but not to the value itself
+#if defined (__mips__) || defined (__riscv)
+  asm volatile("" : : "rm"(t) : "memory");
+#else
   asm volatile("" : : "r"(t));
+#endif
 }
 
 template <typename T>
