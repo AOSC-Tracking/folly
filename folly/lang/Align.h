@@ -145,7 +145,7 @@ using max_align_v_ = max_align_t_<
 constexpr std::size_t max_align_v = detail::max_align_v_::value();
 struct alignas(max_align_v) max_align_t {};
 
-#if defined(__cpp_lib_hardware_interference_size)
+#if defined(__cpp_lib_hardware_interference_size) && !defined(__riscv) && !defined(__mips64)
 
 //  GCC unconditionally warns about uses of the std's interference-size
 //  constants, on the basis that their uses in public ABIs is likely broken:
