@@ -27,7 +27,7 @@
 #include <folly/synchronization/AtomicUtil.h>
 #include <folly/synchronization/detail/AtomicUtils.h>
 
-#if defined(__GLIBCXX__) && FOLLY_HAS_PACKED_SYNC_PTR
+#if defined(__GLIBCXX__) && FOLLY_HAS_PACKED_SYNC_PTR && !FOLLY_RISCV64
 #define FOLLY_HAS_ATOMIC_SHARED_PTR_HOOKED 1
 #else
 #define FOLLY_HAS_ATOMIC_SHARED_PTR_HOOKED 0

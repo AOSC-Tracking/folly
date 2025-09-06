@@ -22,7 +22,7 @@
 
 #include <folly/lang/SafeAssert.h>
 
-#if defined(__GLIBCXX__)
+#if defined(__GLIBCXX__) && !FOLLY_RISCV64
 
 namespace folly {
 namespace detail {
