@@ -70,4 +70,8 @@ folly_add_library(
     -DFOLLY_MEMSET_IS_MEMSET
 )
 
+if(BUILD_SHARED_LIBS)
+  set(CMAKE_ASM_CREATE_SHARED_LIBRARY ${CMAKE_C_CREATE_SHARED_LIBRARY})
+endif()
+
 endif()
